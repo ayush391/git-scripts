@@ -4,7 +4,7 @@
 EXCLUDE_BRANCHES="(^\\*|master|main|development)"
 
 # List local branches that are merged and exclude specified branches
-MERGED_BRANCHES=$(git branch --merged | egrep -v "$EXCLUDE_BRANCHES")
+MERGED_BRANCHES=$(git branch --merged | grep -Ev "$EXCLUDE_BRANCHES")
 
 # Check if there are any branches to delete
 if [ -z "$MERGED_BRANCHES" ]; then
